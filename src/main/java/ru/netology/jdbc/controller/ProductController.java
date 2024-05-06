@@ -1,21 +1,25 @@
-package ru.netology.jdsb.controller;
+package ru.netology.jdbc.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import ru.netology.jdsb.repository.ProductRepository;
+import ru.netology.jdbc.repository.ProductRepository;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/products")
 public class ProductController {
 
-    @Autowired
-    private ProductRepository productRepository;
+    private final ProductRepository productRepository;
+
+    public ProductController(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
 
     @GetMapping("/fetch-product")
-    public String fetchProduct(@RequestParam String name) {
+    public List<String> fetchProduct(@RequestParam String name) {
         return productRepository.getProductName(name);
     }
 }

@@ -1,13 +1,13 @@
-package ru.netology.jdsb;
+package ru.netology.jdbc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JdsbApplication {
+public class JdbcApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JdsbApplication.class, args);
+		SpringApplication.run(JdbcApplication.class, args);
 	}
 
 }
