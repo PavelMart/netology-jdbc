@@ -17,16 +17,16 @@ public class CustomerEntity {
     @Check(constraints = "age > 0")
     int age;
     @Column(unique = true, length = 10)
-    String phone_number;
+    String phoneNumber;
 
     public CustomerEntity() {}
 
-    public CustomerEntity(int id, String name, String surname, int age, String phone_number) {
+    public CustomerEntity(int id, String name, String surname, int age, String phoneNumber) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.age = age;
-        this.phone_number = phone_number;
+        this.phoneNumber = phoneNumber;
     }
 
     public int getId() {
@@ -61,11 +61,11 @@ public class CustomerEntity {
         this.age = age;
     }
 
-    public String getPhone_number() {
-        return phone_number;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhone_number(String phone_number) {
-        this.phone_number = phone_number;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }

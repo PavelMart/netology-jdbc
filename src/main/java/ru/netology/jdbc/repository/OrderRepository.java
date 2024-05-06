@@ -13,11 +13,14 @@ public class OrderRepository {
     @PersistenceContext
     private EntityManager em;
 
-    public List<OrderEntity> getOrdersByCustomerName(String name) {
-        String query = "select o from OrderEntity o join o.customerEntity c where lower(c.name) = :name";
+    public List<String> getProductsByCustomerName(String name) {
+        String query = "select o.productName from OrderEntity o join o.customerEntity c where lower(c.name) = :name";
 
         return em.createQuery(query, OrderEntity.class)
                 .setParameter("name", name)
-                .getResultList();
+                .getResultList()
+                .stream()
+                .map(OrderEntity::getProductName)
+                .toList();
     }
 }

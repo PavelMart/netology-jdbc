@@ -20,7 +20,7 @@ public class OrderController {
     }
 
     @GetMapping("/fetch-product")
-    public List<OrderEntity> fetchProduct(@RequestParam String name) {
-        return orderRepository.getOrdersByCustomerName(name);
+    public List<String> fetchProduct(@RequestParam String name) {
+        return orderRepository.getProductsByCustomerName(name);
     }
 }
